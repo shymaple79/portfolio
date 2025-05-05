@@ -1,0 +1,15 @@
+project-root/
+├── index.html              # Main HTML file that includes all components
+├── css/
+│   ├── styles.css          # Main CSS file that imports all component styles
+│   ├── header.css          # Styles for the header component
+│   ├── footer.css          # Styles for the footer component
+│   ├── hero.css            # Styles for the hero/bio section
+│   └── blog.css            # Styles for the blog section
+│   └── hobbies.css         # Styles for the free time/hobbies section
+└── components/
+    ├── header.html         # Header HTML component
+    ├── footer.html         # Footer HTML component
+    ├── hero.html           # Hero/bio section HTML component
+    └── blog.html           # Blog section HTML component
+    └── hobbies.html        # Free time/hobbies HTML component
