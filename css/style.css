@@ -315,18 +315,64 @@ footer {
 /* Projects Page Styles */
 .project {
     margin-bottom: var(--spacing-lg);
+    /* Add padding or border if needed to visually separate projects */
+    /* border-bottom: 1px solid var(--medium-gray); */
+    /* padding-bottom: var(--spacing-lg); */
 }
 
 .project h3 {
     color: var(--primary-color);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md); /* Increase bottom margin slightly */
+    text-align: center; /* Center the project title */
 }
 
-.project-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+/* Style for the main image and text content container (TacitBase overview) */
+.project-main-info {
+    display: flex; /* Enable Flexbox for horizontal layout */
+    gap: var(--spacing-md); /* Add space between the image and text */
+    margin-bottom: var(--spacing-lg); /* Space below this section */
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+/* Style for the large image container in the main info */
+.project-image-large {
+    flex: 0 0 60%; /* Allocate 60% of the flex container width */
+    /* flex-basis: 60%; */ /* Alternative way to set preferred size */
+    /* flex-grow: 1; */ /* Allow it to grow if needed (optional) */
+    /* flex-shrink: 0; */ /* Prevent it from shrinking below 60% (optional) */
+}
+
+/* Ensure the image inside project-image-large takes full width and maintains aspect ratio */
+.project-image-large img {
+    display: block;
+    width: 100%; /* Make image take full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: var(--border-radius); /* Keep rounded corners */
+    box-shadow: var(--box-shadow); /* Add a subtle shadow */
+}
+
+
+/* Style for the text content in the main info */
+.project-text-content {
+    flex: 1; /* Allows this div to take up the remaining space */
+    /* flex-basis: 40%; */ /* Alternative way to set preferred size */
+}
+
+.project-text-content p {
+     margin-bottom: var(--spacing-sm); /* Space below the description */
+}
+
+.project-text-content h4 {
+     margin-top: var(--spacing-sm); /* Space above the features heading */
+     margin-bottom: var(--spacing-xs); /* Space below the features heading */
+     color: var(--secondary-color); /* Match general heading color */
+}
+
+.project-text-content ul {
+    padding-left: var(--spacing-md); /* Add padding for list bullets */
+    list-style-type: disc; /* Use disc bullets */
+    margin-bottom: var(--spacing-sm); /* Space below the list */
 }
 
 .project-link {
@@ -342,6 +388,73 @@ footer {
 .sub-project {
     margin-bottom: var(--spacing-sm);
     padding-left: var(--spacing-md);
+}
+/* Style for the container holding the sub-features (Job Calendar, AI Job Writing) */
+.project-sub-features {
+    display: grid; /* Use Grid for a responsive layout of sub-items */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Create responsive columns */
+    gap: var(--spacing-md); /* Add space between sub-feature items */
+    margin-top: var(--spacing-md); /* Space above this section */
+}
+
+/* Style for each individual sub-feature item */
+.sub-feature-item {
+    display: flex; /* Use Flexbox to stack image and content vertically */
+    flex-direction: column;
+    /* align-items: center; */ /* Optional: center content horizontally within the item */
+    text-align: center; /* Center text content */
+    background-color: var(--white); /* Optional: Add a background */
+    padding: var(--spacing-sm); /* Optional: Add padding */
+    border-radius: var(--border-radius); /* Optional: Add rounded corners */
+    box-shadow: var(--box-shadow); /* Optional: Add a subtle shadow */
+}
+
+/* Style for images within sub-feature items */
+.sub-feature-item img {
+    display: block;
+    width: 100%; /* Make image take full width of its parent (.sub-feature-item) */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: var(--border-radius); /* Keep rounded corners */
+    margin-bottom: var(--spacing-sm); /* Space below the image */
+    /* object-fit: cover; */ /* Optional: Use if you want images to cover space if aspect ratios vary */
+}
+
+.sub-feature-item h4 {
+    margin-bottom: var(--spacing-xs); /* Space below the heading */
+    color: var(--primary-color); /* Color the sub-feature title */
+}
+
+.sub-feature-item p {
+    /* margin-bottom: 0; */ /* Remove bottom margin if this is the last element */
+    color: var(--dark-gray); /* Style the description text */
+}
+
+/* Responsive adjustments for the project section */
+@media (max-width: 768px) {
+    .project-main-info {
+        flex-direction: column; /* Stack main image and text vertically */
+        align-items: center; /* Center items when stacked */
+    }
+
+    .project-image-large {
+        flex-basis: auto; /* Remove flex-basis when stacked */
+        width: 80%; /* Optional: Control width of image container when stacked */
+        max-width: 400px; /* Optional: Max width for the image when stacked */
+        margin-bottom: var(--spacing-md); /* Add space below the image */
+    }
+
+     .project-image-large img {
+          height: auto; /* Ensure height is auto when stacked */
+     }
+
+
+    .project-text-content {
+        flex: auto; /* Allow content to take necessary height when stacked */
+        width: 100%; /* Ensure text content takes full width when stacked */
+    }
+
+    /* The grid for .project-sub-features will handle stacking automatically
+       based on the minmax value and available width. */
 }
 
 .website-grid, .product-grid, .visual-aid-grid, .logo-grid, .misc-grid {
