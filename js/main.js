@@ -5,20 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-container').innerHTML = data;
-            
-            // Highlight current page in navigation
-            const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('nav ul li a');
-            
-            navLinks.forEach(link => {
-                const linkHref = link.getAttribute('href');
-                if (linkHref === currentPage || 
-                    (currentPage === '' && linkHref === 'index.html') ||
-                    (currentPage === '/' && linkHref === 'index.html')) {
-                    link.style.fontWeight = 'bold';
-                    link.style.borderBottom = '2px solid var(--primary-color)';
-                }
-            });
+            setupNavigation();
         })
         .catch(error => console.error('Error loading header:', error));
     
@@ -34,6 +21,88 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGallery();
 });
 
+// Function to handle client-side routing
+function setupNavigation() {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Don't handle external links or mailto links
+            if (this.hostname !== window.location.hostname || this.protocol === 'mailto:') {
+                return;
+            }
+
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            
+            // Update URL without reload
+            window.history.pushState({}, '', href);
+            
+            // Load the new page content
+            loadPage(href);
+            
+            // Update active link
+            updateActiveLink(href);
+        });
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function() {
+        loadPage(window.location.pathname);
+        updateActiveLink(window.location.pathname);
+    });
+}
+
+// Function to load page content
+function loadPage(url) {
+    // Extract the page name from the URL
+    const pageName = url.split('/').pop() || 'index.html';
+    
+    // Fetch the new page content
+    fetch(pageName)
+        .then(response => response.text())
+        .then(html => {
+            // Create a temporary element to parse the HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Update the main content
+            const newContent = doc.querySelector('main');
+            if (newContent) {
+                document.querySelector('main').innerHTML = newContent.innerHTML;
+            }
+            
+            // Update the page title
+            document.title = doc.title;
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Reinitialize any necessary components
+            initializeGallery();
+        })
+        .catch(error => console.error('Error loading page:', error));
+}
+
+// Function to update active link in navigation
+function updateActiveLink(currentPath) {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const pageName = currentPath.split('/').pop() || 'index.html';
+    
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === pageName || 
+            (pageName === '' && linkHref === 'index.html') ||
+            (pageName === '/' && linkHref === 'index.html')) {
+            link.style.fontWeight = 'bold';
+            link.style.borderBottom = '2px solid var(--primary-color)';
+        } else {
+            link.style.fontWeight = 'normal';
+            link.style.borderBottom = 'none';
+        }
+    });
+}
+
 // Function to initialize gallery lightbox effect (if needed)
 function initializeGallery() {
     const galleryItems = document.querySelectorAll('.gallery-item img');
@@ -42,7 +111,6 @@ function initializeGallery() {
         galleryItems.forEach(item => {
             item.addEventListener('click', function() {
                 // Simple lightbox implementation could go here
-                // For a production site, you might want to use a library like Lightbox or Fancybox
                 console.log('Gallery item clicked:', this.alt);
             });
         });
