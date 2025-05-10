@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mahendra Palecha</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        .blog-intro {
+            text-align: left;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .blog-intro h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .blog-intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--secondary-color);
+            max-width: 800px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: var(--spacing-md);
+        }
+
+        .blog-content h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.4rem;
+        }
+
+        .blog-content p {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: var(--spacing-xs);
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .linkedin-cta {
+            background-color: var(--light-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .linkedin-cta h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .linkedin-cta p {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .linkedin-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .linkedin-button:hover {
+            background-color: #005a94;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="blog-section">
+            <div class="blog-intro">
+                <h2>My Thoughts & Insights</h2>
+                <p>Exploring ideas, sharing experiences, and discussing topics that matter in technology, productivity, and personal growth.</p>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="images/blog/unstructured-life.jpg" alt="Unstructured Life" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>March 15, 2024</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>The Rise of No-Code Tools</h3>
+                        <p>Exploring how no-code platforms are democratizing software development and enabling more people to build digital solutions.</p>
+                        <a href="https://www.linkedin.com/newsletters/shymaple-s-thoughts-6980775501569150976/" target="_blank" rel="noopener noreferrer" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/blog/average-user.jpg" alt="Average User" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>March 10, 2024</span>
+                            <span>4 min read</span>
+                        </div>
+                        <h3>10 Productivity Hacks That Actually Work</h3>
+                        <p>Practical tips and strategies to boost your productivity and make the most of your time.</p>
+                        <a href="https://www.linkedin.com/newsletters/shymaple-s-thoughts-6980775501569150976/" target="_blank" rel="noopener noreferrer" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/blog/culture.jpg" alt="Culture" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>March 5, 2024</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3>Automating Your Workflow</h3>
+                        <p>How to identify and automate repetitive tasks to save time and reduce errors in your daily work.</p>
+                        <a href="https://www.linkedin.com/newsletters/shymaple-s-thoughts-6980775501569150976/" target="_blank" rel="noopener noreferrer" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="linkedin-cta">
+                <h3>Want to Read More?</h3>
+                <p>I regularly share my thoughts, insights, and experiences on LinkedIn. Join me there for more articles, tips, and discussions about technology, productivity, and personal growth.</p>
+                <a href="https://www.linkedin.com/newsletters/shymaple-s-thoughts-6980775501569150976/" target="_blank" rel="noopener noreferrer" class="linkedin-button">Read More on LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html> 
