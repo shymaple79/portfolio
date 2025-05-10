@@ -316,8 +316,8 @@ footer {
 .project {
     margin-bottom: var(--spacing-lg);
     /* Add padding or border if needed to visually separate projects */
-    /* border-bottom: 1px solid var(--medium-gray); */
-    /* padding-bottom: var(--spacing-lg); */
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: var(--spacing-lg);
 }
 
 .project h3 {
@@ -338,9 +338,10 @@ footer {
 /* Style for the large image container in the main info */
 .project-image-large {
     flex: 0 0 60%; /* Allocate 60% of the flex container width */
-    /* flex-basis: 60%; */ /* Alternative way to set preferred size */
-    /* flex-grow: 1; */ /* Allow it to grow if needed (optional) */
-    /* flex-shrink: 0; */ /* Prevent it from shrinking below 60% (optional) */
+    border-radius: var(--border-radius); /* Keep rounded corners */
+    flex-basis: 60%; /* Alternative way to set preferred size */
+    flex-grow: 1; /* Allow it to grow if needed (optional) */
+    flex-shrink: 0; /* Prevent it from shrinking below 60% (optional) */
 }
 
 /* Ensure the image inside project-image-large takes full width and maintains aspect ratio */
@@ -356,7 +357,7 @@ footer {
 /* Style for the text content in the main info */
 .project-text-content {
     flex: 1; /* Allows this div to take up the remaining space */
-    /* flex-basis: 40%; */ /* Alternative way to set preferred size */
+    flex-basis: 40%; /* Alternative way to set preferred size */
 }
 
 .project-text-content p {
@@ -401,8 +402,8 @@ footer {
 .sub-feature-item {
     display: flex; /* Use Flexbox to stack image and content vertically */
     flex-direction: column;
-    /* align-items: center; */ /* Optional: center content horizontally within the item */
-    text-align: center; /* Center text content */
+    align-items: center; /* Optional: center content horizontally within the item */
+    text-align: left; /* Center text content */
     background-color: var(--white); /* Optional: Add a background */
     padding: var(--spacing-sm); /* Optional: Add padding */
     border-radius: var(--border-radius); /* Optional: Add rounded corners */
@@ -416,7 +417,7 @@ footer {
     height: auto; /* Maintain aspect ratio */
     border-radius: var(--border-radius); /* Keep rounded corners */
     margin-bottom: var(--spacing-sm); /* Space below the image */
-    /* object-fit: cover; */ /* Optional: Use if you want images to cover space if aspect ratios vary */
+    object-fit: cover; /* Optional: Use if you want images to cover space if aspect ratios vary */
 }
 
 .sub-feature-item h4 {
