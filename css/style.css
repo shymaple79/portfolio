@@ -323,13 +323,13 @@ footer {
 .project h3 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-md); /* Increase bottom margin slightly */
-    text-align: center; /* Center the project title */
+    text-align: left; /* left the project title */
 }
 
 /* Style for the main image and text content container (TacitBase overview) */
 .project-main-info {
     display: flex; /* Enable Flexbox for horizontal layout */
-    gap: var(--spacing-md); /* Add space between the image and text */
+    justify-content: space-between; /* Space between image and content */
     margin-bottom: var(--spacing-lg); /* Space below this section */
     align-items: flex-start; /* Align items to the top */
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
@@ -337,11 +337,7 @@ footer {
 
 /* Style for the large image container in the main info */
 .project-image-large {
-    flex: 0 0 60%; /* Allocate 60% of the flex container width */
-    border-radius: var(--border-radius); /* Keep rounded corners */
-    flex-basis: 60%; /* Alternative way to set preferred size */
-    flex-grow: 1; /* Allow it to grow if needed (optional) */
-    flex-shrink: 0; /* Prevent it from shrinking below 60% (optional) */
+    max-width: 57%; /* Allocate 57% for image */
 }
 
 /* Ensure the image inside project-image-large takes full width and maintains aspect ratio */
@@ -356,8 +352,7 @@ footer {
 
 /* Style for the text content in the main info */
 .project-text-content {
-    flex: 1; /* Allows this div to take up the remaining space */
-    flex-basis: 40%; /* Alternative way to set preferred size */
+    max-width: 40%; /* Max widht given 40% to text content */
 }
 
 .project-text-content p {
