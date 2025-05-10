@@ -11,7 +11,7 @@
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
-    --border-radius: 4px;
+    --border-radius: 12px;
     --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -402,12 +402,9 @@ footer {
 .sub-feature-item {
     display: flex; /* Use Flexbox to stack image and content vertically */
     flex-direction: column;
-    align-items: center; /* Optional: center content horizontally within the item */
-    text-align: left; /* Center text content */
-    background-color: var(--white); /* Optional: Add a background */
+    text-align: left; /* Left text content */
     padding: var(--spacing-sm); /* Optional: Add padding */
     border-radius: var(--border-radius); /* Optional: Add rounded corners */
-    box-shadow: var(--box-shadow); /* Optional: Add a subtle shadow */
 }
 
 /* Style for images within sub-feature items */
